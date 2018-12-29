@@ -16,8 +16,8 @@ Resources:
     HelloWorldFunction:
         Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
         Properties:
-            CodeUri: target/HelloWorld-1.0.jar
-            Handler: helloworld.App::handleRequest
+            CodeUri: target/DemoLambda-1.0.jar
+            Handler: demolambda.App::handleRequest
             Runtime: java8
             Environment: # More info about Env Vars: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#environment-object
                 Variables:
@@ -31,14 +31,14 @@ Resources:
 
 Outputs:
 
-    HelloWorldApi:
-      Description: "API Gateway endpoint URL for Prod stage for Hello World function"
+    DemoLambdadApi:
+      Description: "API Gateway endpoint URL for Prod stage for Demo Lambda function"
       Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/hello/"
 
-    HelloWorldFunction:
-      Description: "Hello World Lambda Function ARN"
+    DemoLambdaFunction:
+      Description: "Demo Lambda Lambda Function ARN"
       Value: !GetAtt HelloWorldFunction.Arn
 
-    HelloWorldFunctionIamRole:
-      Description: "Implicit IAM Role created for Hello World function"
+    DemoLambdaFunctionIamRole:
+      Description: "Implicit IAM Role created for Demo Lambda function"
       Value: !GetAtt HelloWorldFunctionRole.Arn
